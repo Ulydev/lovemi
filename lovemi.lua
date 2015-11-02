@@ -1,10 +1,12 @@
-local konami = {instances = {}}
-setmetatable(konami, konami)
+local lovemi = {instances = {}}
+setmetatable(lovemi, lovemi)
 
-function konami:add(onStart, duration, onEnd)
+function lovemi:add(code, onStart, duration, onEnd)
+  
+  assert(code, "Pattern required")
   
   local instance = {
-    code = {"up", "up", "down", "down", "left", "right", "left", "right", "b", "a"},
+    code = code,
     onStart = onStart,
     duration = duration,
     time = 0,
@@ -18,7 +20,7 @@ function konami:add(onStart, duration, onEnd)
 
 end
 
-function konami:update(dt)
+function lovemi:update(dt)
   
   for i = 1, #self.instances do
     local instance = self.instances[i]
@@ -33,7 +35,7 @@ function konami:update(dt)
   
 end
 
-function konami:keypressed(key, isrepeat)
+function lovemi:keypressed(key, isrepeat)
   
   for i = 1, #self.instances do
     local instance = self.instances[i]
@@ -54,4 +56,4 @@ function konami:keypressed(key, isrepeat)
   
 end
 
-return konami
+return lovemi

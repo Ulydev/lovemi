@@ -1,25 +1,27 @@
-konami
+lovemi
 ==============
 
-Integrate the konami code into your game!
+Integrate the konami code and customised patterns into your game!
+
+This library lets you call functions using customised patterns, so that you can add secret cheats!
 
 Usage
 ----------------
 
 ```lua
-local konami = require "konami"
+local lovemi = require "lovemi"
 
 function love.load()
-  konami:add(onStart, duration, onEnd)
+  lovemi:add(onStart, duration, onEnd)
 end
 
 function love.update(dt)
-  konami:update(dt)
+  lovemi:update(dt)
 end
 
 function love.keypressed(key, isrepeat)
-  konami:keypressed(key, isrepeat)
+  lovemi:keypressed(key, isrepeat)
 end
 ```
 
-konami:add() takes three optional parameters : **onStart** and **onEnd** are callbacks called when the code gets activated: the **duration** value, in seconds, is the time it should stay active. If not provided, *onEnd* will not be called.
+lovemi:add() takes three optional parameters : **onStart** and **onEnd** are callbacks called when the code gets activated: the **duration** value, in seconds, is the time it should stay active. If not provided, *onEnd* will not be called.
