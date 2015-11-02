@@ -25,5 +25,5 @@ end
 ```
 
 lovemi:add() takes four parameters:
--**pattern** is required. It's a table containing the pattern (e.g. {"up", "down", "left", "right"})
--the others are optional : **onStart** and **onEnd** are callbacks called when the code gets activated: the **duration** value, in seconds, is the time it should stay active. If not provided, *onEnd* will not be called.
+- **pattern** is required. It's a table containing the pattern (e.g. {"up", "down", "left", "right"})
+- the others are optional : **onStart** and **onEnd** are callbacks called when the code gets activated: the **duration** value, in seconds, is the time it should stay active. If not provided, *onEnd* will not be called.
