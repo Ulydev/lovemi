@@ -3,12 +3,12 @@ local lovemi = require "lovemi"
 require "examples.mlg.sound" --allows hit to be played multiple times
 
 local music
-local targetVolume = 0 --fade audio
 
 function love.load()
   
   --load resource m8
   music = love.audio.newSource("/examples/mlg/rekt.mp3", "stream")
+  music:setVolume(0)
   illuminati = love.audio.newSource("/examples/mlg/illuminati.mp3")
   hit = love.graphics.newImage("/examples/mlg/hit.png")
   bg = love.graphics.newImage("/examples/mlg/bg.png")
