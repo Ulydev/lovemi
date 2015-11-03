@@ -12,18 +12,62 @@ Usage
 local lovemi = require "lovemi"
 
 function love.load()
-  lovemi:add(pattern, onStart, duration, onEnd)
+  local pattern = lovemi.add(attributes)
 end
 
 function love.update(dt)
-  lovemi:update(dt)
+  lovemi.update(dt)
 end
 
 function love.keypressed(key, isrepeat)
-  lovemi:keypressed(key, isrepeat)
+  lovemi.keypressed(key, isrepeat)
 end
 ```
 
-lovemi:add() takes four parameters:
-- **pattern** is required. It's a table containing the pattern (e.g. {"up", "down", "left", "right"})
-- the others are optional : **onStart** and **onEnd** are callbacks called when the code gets activated: the **duration** value, in seconds, is the time it should stay active. If not provided, *onEnd* will not be called.
+Attributes
+----------------
+
+The majority of them are optional. You can set these attributes when creating a new pattern.
+
+```lua
+pattern = lovemi.add({
+
+  pattern = {"a", "b", "c", "d"},
+
+  onStart = function()
+    --pattern executed
+  end
+  
+})
+```
+
+Attributes
+
+```lua
+pattern --table containing keys (required)
+
+duration --if not set, onEnd will never be called
+```
+
+Callbacks
+
+```lua
+onStart --pattern executed
+onEnd --pattern execution ended
+
+onSuccess --right key
+onFail --wrong key, pattern resets
+```
+
+Methods
+
+```lua
+pattern:getActive() --is pattern being executed?
+
+pattern:getLength() --returns pattern length
+pattern:getPosition() --returns current pattern position (useful for combo systems)
+
+pattern:remove() --removes the pattern from lovemi
+
+lovemi.clear() --removes every pattern from lovemi
+```
